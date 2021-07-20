@@ -27,13 +27,11 @@ function App() {
                          <Route path="/">
                             <EmailList/>
                         </Route>
-
                     </Switch>
                 </div>
 
             </div>
         </Router>
-
     );
 }
 
