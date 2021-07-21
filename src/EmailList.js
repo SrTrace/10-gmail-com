@@ -48,7 +48,7 @@ const EmailList = () => {
 
             <div className="emailList__sections">
                 <Section Icon={Inbox}
-                         title="primary"
+                         title="Primary"
                          color="red"
                          selected/>
                 <Section Icon={People}
