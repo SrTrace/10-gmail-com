@@ -3,30 +3,20 @@ import {createSlice} from '@reduxjs/toolkit';
 export const mailSlice = createSlice({
     name: 'counter',
     initialState: {
-        value: 0,
+        sendMessageIsOpen: false,
     },
     reducers: {
-        increment: (state) => {
-            state.value += 1;
+        openSendMessage: (state) => {
+            state.sendMessageIsOpen = true;
         },
-        decrement: (state) => {
-            state.value -= 1;
-        },
-        incrementByAmount: (state, action) => {
-            state.value += action.payload;
+        closeMessage: (state) => {
+            state.sendMessageIsOpen = false;
         },
     },
 });
 
-export const {increment, decrement, incrementByAmount} = mailSlice.actions;
+export const {openSendMessage, closeMessage} = mailSlice.actions;
 
-export const selectCount = (state) => state.counter.value;
-
-export const incrementIfOdd = (amount) => (dispatch, getState) => {
-    const currentValue = selectCount(getState());
-    if (currentValue % 2 === 1) {
-        dispatch(incrementByAmount(amount));
-    }
-};
+export const selectSendMessageIsOpen = (state) => state.mail.sendMessageIsOpen;
 
 export default mailSlice.reducer;
