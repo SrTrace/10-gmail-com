@@ -12,9 +12,12 @@ import {
     MoveToInbox, Print, UnfoldMore,
     WatchLater
 } from "@material-ui/icons";
+import {useSelector} from "react-redux";
+import {selectOpenMail} from "./features/mailSlice";
 
 const Mail = () => {
     let history = useHistory();
+    let selectedMail = useSelector(selectOpenMail);
 
     return (
         <div className="mail">
@@ -73,14 +76,14 @@ const Mail = () => {
             </div>
             <div className="mail__body">
                 <div className="mail__bodyHeader">
-                    <h2>Subject</h2>
+                    <h2>{selectedMail?.subject}</h2>
                     <LabelImportant className="mail__important"/>
-                    <p>Title</p>
-                    <p>10pm</p>
+                    <p>{selectedMail?.title}</p>
+                    <p className="mail__time">{selectedMail?.time}</p>
                 </div>
 
                 <div className="mail__message">
-                    <p>This is a testing message inside Mail Component</p>
+                    <p>{selectedMail?.description}</p>
                 </div>
             </div>
         </div>
